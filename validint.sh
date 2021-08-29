@@ -7,8 +7,7 @@
 #Prompts the user to enter a two digit numberic code that is either 20 or 40
 #No other inputs are to be accepted as valid
 
-#Begin of the script
-while true; do #Begin the loop
+while true; do #Begin of the loop
 
 #Prompt user for a two digit numberic code and assign it to a new variable: code
 read -p "Please enter a two digit numberic code: " code
@@ -24,4 +23,3 @@ done #End of the loop
 echo "Valid Input!" #Message if the input is valid
 
 exit 0
-#End of the script
