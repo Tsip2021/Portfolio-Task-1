@@ -10,6 +10,7 @@ file="${1:-access_log.txt}" #Variable with default value to hold the file to sea
 matches=0 #Counter to hold the total number of matches from any pattern
 check=1 #Variable to confirm if the user wants to continue searching
 
+#Begin of the loop
 while [ $check = 1 ]; do
     read -p "Please Enter the Search Pattern: " pattern
 
@@ -68,6 +69,6 @@ while [ $check = 1 ]; do
 
     echo -e "1: Yes \n2: No"
     read -p "Start a New Search [1 or 2]: " check #check if the user wants to continue. Program terminates if the users enters 2 or any other thing apart from 1
-done
+done #End of the loop
 
 exit 0
