@@ -13,26 +13,23 @@ check=1 #Variable to confirm if the user wants to continue searching
 while [ $check = 1 ]; do
     read -p "Please Enter the Search Pattern: " pattern
 
-    echo -e "1) Whole Word Match\n2) Any Match\n3) Inverted Match"
-    read -p "Please Select the Search Method [1, 2 or 3]: " method
+        while true; do
+            echo -e "1) Whole Word Match\n2) Any Match\n3) Inverted Match"
+            read -p "Please Select the Search Method [1, 2 or 3]: " method
+            if [ $method -gt 3 ]; then
+                echo "Invalid Search Method! Please Try Again!"
+            else
+              #  echo "$pattern + $method"
+                break
+            fi
+        done
 
-        if [ $method = 1 ]; then
-        echo "$pattern + 1"
-        elif [ $method = 2 ]; then
-        echo "$pattern + 2"
-        else
-        echo "$pattern + 3"
-        fi
+
+
+
 
     echo -e "1: Yes \n2: No"
     read -p "Start a New Search [1 or 2]: " check #check if the user wants to continue. Program terminates if the users enters 2 or any other thing apart from 1
 done
-
-#case $selmethod in
- #   1) echo "Whold Word Match";;
- #   2) echo "Any Match";;
- #   3) echo "Inverted Match";;
-  #  *) echo "Invalid Seletction" && exit 1;;
-#esac
 
 exit 0
