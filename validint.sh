@@ -8,10 +8,10 @@
 #No other inputs are to be accepted as valid
 
 #Begin of the script
-#Prompts the user to enter a two digit number code and assign it to a variable: code
+#Prompt user for a two digit numberic code and assign it to a new variable: code
 read -p "Please enter a two digit numberic code: " code
 
-#Check whethe the input is valid or not. The loop runs as long as the input is valid
+#Check whethe the input is 20 or 40. The loop runs as long as the input is not 20 or 40
 while [[ $code != 20 ]] && [[ $code != 40 ]]
 do
 echo "Invalid Input! Please Try Again!" #Message if the input is not valid

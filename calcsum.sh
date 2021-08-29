@@ -8,7 +8,7 @@
 #If the sum exceeds 30, give the user a warning message and exit the script
 
 #Begin of the script
-#Calculates the sum of three integers that user entered through the command line and assign it to the variable: sum
+#Calculates the sum of three integers that user entered through the command line and assign it to a new variable: sum
 sum=$(($1+$2+$3))
 
 #Check whether the sum is less than or equal to 30
