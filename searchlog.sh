@@ -14,7 +14,7 @@ while [ $check = 1 ]; do
     read -p "Please Enter the Search Pattern: " pattern
 
         while true; do
-            echo -e "1) Whole Word Match\n2) Any Match\n3) Inverted Match"
+            echo -e "1) Whole Word Match\n2) Any Word Match\n3) Inverted Match"
             read -p "Please Select the Search Method [1, 2 or 3]: " method
             if [ $method -gt 3 ]; then
                 echo "Invalid Search Method! Please Try Again!"
@@ -24,9 +24,48 @@ while [ $check = 1 ]; do
             fi
         done
 
+        if [ $method = 1 ]; then #Search process for method 1: Whold Word Match
+            echo -e "\n-----Full word match[s]-----"
+            matches=$(grep -o -i -w $pattern $file | wc -l) #Determine the total number of full word matches
 
+            if [ "$matches" -le 0 ]; then
+                echo -e "No matches found\n"                
+            else        
+                echo "$matches matches found"           
+                echo -e "\n-----Result-----"
+                grep -i -w -n $pattern $file #Print out the match words/lines with their corresponding line numbers
+                echo -e "-----End-----"
+                echo -e "\n"
+            fi
 
+        elif [ $method = 2 ]; then #Search process for method 2: Any Word Match
+            echo -e "\n-----Any Word Match-----"            
+            matches=$(grep -o -i $pattern $file | wc -l) #Determine the total number of any word matches
 
+            if [ "$matches" -le 0 ]; then
+                echo -e "No matches found\n"                
+            else        
+                echo "$matches matches found"           
+                echo -e "\n-----Result-----"
+                grep -o -i -n $pattern $file  #Print out the match words/lines with their corresponding line numbers
+                echo -e "-----End-----"
+                echo -e "\n"
+            fi
+        
+        elif [ $method = 3 ]; then #Search process for method 3: Inverted Match
+            echo -e "\n-----Inverted Match----\n"        
+            matches=$(grep -v $pattern $file | wc -l)  #Determine the total number of inverted word matches
+
+            if [ "$matches" -le 0 ]; then
+                echo -e "No matches found\n"                
+            else        
+                echo "$matches matches found"           
+                echo -e "\n-----Result-----"
+                grep -v -i -n $pattern $file  #Print out the match words/lines with their corresponding line numbers
+                echo -e "-----End-----"
+                echo -e "\n"
+            fi    
+        fi
 
     echo -e "1: Yes \n2: No"
     read -p "Start a New Search [1 or 2]: " check #check if the user wants to continue. Program terminates if the users enters 2 or any other thing apart from 1
