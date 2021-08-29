@@ -22,7 +22,7 @@ for item in /$1/*; do
     fi
 
     if [ -d $item ]; then #Check if the item is a directory
-        if [ $(ls -A $item) ]; then #Check if the directory contain data
+        if [ "$(ls -A $item)" ]; then #Check if the directory contain data
             let nonemptydir++ #Increase the number of directories with data by one each time if we find a directory with data
         else
             let emptydir++ #Increase the number of directories without data by one each time if we find a directory without data
