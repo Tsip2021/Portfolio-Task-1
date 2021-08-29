@@ -16,10 +16,9 @@ while [ $check = 1 ]; do
         while true; do
             echo -e "1) Whole Word Match\n2) Any Word Match\n3) Inverted Match"
             read -p "Please Select the Search Method [1, 2 or 3]: " method
-            if [ $method -gt 3 ]; then
+            if [[ $method != [1-3] ]]; then
                 echo "Invalid Search Method! Please Try Again!"
             else
-              #  echo "$pattern + $method"
                 break
             fi
         done
