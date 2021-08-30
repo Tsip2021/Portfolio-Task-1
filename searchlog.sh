@@ -25,7 +25,7 @@ while [ $check -eq 1 ]; do #The loop runs as long as check equal to 1; The loop 
         done
 
         if [ $method -eq 1 ]; then #Search process for method 1: Whold Word Match
-            echo -e "\n-----Full Word Match-----"
+            echo -e "\n-----Whole Word Match-----"
             matches=$(grep -o -i -w $pattern $file | wc -l) #Determine the total number of full word matches
 
             if [ "$matches" -le 0 ]; then #Message the user if no match is found
