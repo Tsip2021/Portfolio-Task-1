@@ -11,8 +11,7 @@ nonemptydir=0 #Variable to hold number of non-empty directories
 emptyfile=0 #Variable to hold number of files without data
 emptydir=0 #Varibale to hold number of empty directories
 
-#Begin of the loop
-for item in /$1/*; do
+for item in /$1/*; do #Begin of the loop; looping through the items found at the provided directory
     if [ -f $item ]; then #Check if the item is a file
         if [ -s $item ]; then #Check if the file contain data
             let nonemptyfile++ #Increase the number of files with data by one each time if we find a file with data
